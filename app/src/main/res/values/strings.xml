@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Monitoring App</string>
+    <string name="bt">Monitor</string>
+    <string name="button">Monitor</string>
+</resources>
