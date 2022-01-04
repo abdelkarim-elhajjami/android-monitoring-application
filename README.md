@@ -1,5 +1,5 @@
 # Android Monitoring Application
 
-C'est une appplication mobile Android qui monitore les processus systèmes qui tournent sur le téléphone.
+It is an Android mobile application that monitors the system processes running on the phone.
 
-Elle produit un affichage dynamique de ces processus et leurs mise à jour.
+It produces a dynamic display of these processes and their updates.
