@@ -22,19 +22,19 @@ import java.util.Scanner;
 
 public class MonitoringActivity extends AppCompatActivity implements View.OnClickListener {
 
-    int p;      // le nombre de processus actifs
+    int p;      // the number of active processes
 
-    int UIDs[];         // tableau des UIDs des applications
-    String Names[];     // tableau des noms des applications
-    String RSSs[];      // tableau des RSSs
+    int UIDs[];         // array of application UIDs
+    String Names[];     // array of application names
+    String RSSs[];      // array of RSSs
 
-    int clickCount[];       // tableau du nombre de clicks correpondant à chaque processus
-    int popUp[];        // pour afficher le pop up du handler qu'une seule fois
+    int clickCount[];       // array of the number of clicks corresponding to each process
+    int popUp[];        // to display the handler pop-up only once
 
-    int btnEnabledId = 0;     // pour activer la mise à jour
-    int btnDisabledId = 0;    // pour désactiver la mise à jour
+    int btnEnabledId = 0;     // to enable the update
+    int btnDisabledId = 0;    // to disable the update
 
-    Boolean stop = false; // pour arrêter les threads correctement
+    Boolean stop = false; // to stop threads correctly
 
     final int MSG_CALCUL = 1;
     final int MSG_ARRET = 2;
@@ -49,7 +49,7 @@ public class MonitoringActivity extends AppCompatActivity implements View.OnClic
                     if (clickCount[j] == 1) {
                         processesData();
                         if (popUp[j] == 0) {
-                            String messageString = "MAJ périodique de la mémoire activée";
+                            String messageString = "Periodic memory update is enabled";
                             btnEnabledId = j;
                             Message msg = mHandler.obtainMessage(
                                     MSG_CALCUL, (Object) messageString);
@@ -58,7 +58,7 @@ public class MonitoringActivity extends AppCompatActivity implements View.OnClic
                         }
                     } else if (clickCount[j] == 2) {
                          if (popUp[j] == 1) {
-                            String messageString = "MAJ périodique de la mémoire désactivée";
+                            String messageString = "Periodic memory update is disabled";
                             btnDisabledId = j;
                             Message msg = mHandler.obtainMessage(
                                     MSG_ARRET, (Object) messageString);
@@ -199,7 +199,6 @@ public class MonitoringActivity extends AppCompatActivity implements View.OnClic
         super.onResume();
         processesData();
         clickCount = new int[p];
-        // nb_click = new int[p];
         popUp = new int[p];
         LinearLayout LL = (LinearLayout) findViewById(R.id.LL);
         for (int i = 0; i < p; ++i) {
